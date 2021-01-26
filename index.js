@@ -62,9 +62,17 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
+function finalScore(inningcb){
+  const scores = [];
+  var homeScore = 0
+  var awayScore = 0
+  for(let i = 0; i< 9; i++){
+   homeScore = homeScore + inning
+   awayScore = awayScore + inning
+   scores.push( "Away:" + homeScore "Home:" + awayScore)
+   }return scores}
+
+console.log(finalScore())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
