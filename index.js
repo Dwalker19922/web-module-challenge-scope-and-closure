@@ -62,17 +62,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function finalScore(inningcb){
-  const scores = [];
-  var homeScore = 0
-  var awayScore = 0
-  for(let i = 0; i< 9; i++){
-   homeScore = homeScore + inning
-   awayScore = awayScore + inning
-   scores.push( "Away:" + homeScore "Home:" + awayScore)
-   }return scores}
-
-console.log(finalScore())
+function inning(){
+  return Math.floor(Math.random() * 3)
+  }
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -88,18 +80,38 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
+function finalScore(inningcb, numOfInnings){
+  let homeScore = 0;
+  let awayScore = 0;
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+  for (let i = 1; i <= numOfInnings; i++) {
+    homeScore += inning();
+    awayScore += inning();
+  }
+  return {
+    "Home": homeScore,
+    "Away":  awayScore
+  }
 }
+
+
+
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningcb) {
+  let homeScore = inning();
+  let awayScore = inning();
+  return {
+    "Away": awayScore,
+    "Home": homeScore
+   
+  }
 }
 
 
@@ -143,11 +155,21 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
+ function scoreboard() {
+  let scorelist = []
+  let homeScore=0;
+  let awayScore=0;
+   for(let i = 0; i < 9; i++){
+  homeScore=inning();
+  awayScore=inning();
+  scorelist.push( "inning " + i + ": Away " + awayScore + "- Home " + homeScore,)
+   }
+   
+return scorelist
+ }
+  
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
-
+  
 
 
 
